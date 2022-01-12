@@ -25,6 +25,7 @@ function App() {
     }
   }, [selectedOption]);
 
+  // FILTERING DATES IN OBJECT
   const dateCheck = (check) => {
     var fDate, lDate, cDate;
     fDate = Date.parse(date1Value);
@@ -36,6 +37,7 @@ function App() {
     return false;
   };
 
+  // GETTING YESTERDAY'S DATE
   const yesterday_dt = () => {
     var today = new Date();
     var yesterday = new Date(today);
@@ -52,6 +54,7 @@ function App() {
     setDate2Value(yesterday);
   };
 
+  // GETTING SPECIFIC DAYS BEFORE DATE
   const getParticularDayTimestamp = (lastWeekDay) => {
     var currentWeekMonday = new Date().getDate() - new Date().getDay() + 1;
     var calculatedDt = new Date(
@@ -69,6 +72,7 @@ function App() {
     return calculatedDtNew;
   };
 
+  // GETTING LAST MONTH START AND END DATES
   const getLastMonthDates = () => {
     var date = new Date();
     var firstDay = new Date(date.getFullYear(), date.getMonth() - 1, 1);
@@ -94,6 +98,7 @@ function App() {
     setDate2Value(endDate);
   };
 
+  // WHEN CLICK BUTTON WILL BE CLICKED
   const clickHandler = () => {
     fetch("https://www.gov.uk/bank-holidays.json")
       .then((response) => response.json())
